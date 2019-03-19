@@ -7,7 +7,7 @@ class Product_model extends CI_Model
     public $product_id;
     public $name;
     public $price;
-    public $image='.image/';
+    public $image='default.jpg';
     public $description;
 
     public function rules()
