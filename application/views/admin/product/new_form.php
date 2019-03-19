@@ -24,6 +24,12 @@
 				</div>
 				<?php endif; ?>
 
+				<?php if ($this->session->flashdata('error')): ?>
+				<div class="alert alert-error" role="alert">
+					<?php echo $this->session->flashdata('error'); ?>
+				</div>
+				<?php endif; ?>
+
 				<div class="card mb-3">
 					<div class="card-header">
 						<a href="<?php echo site_url('admin/products/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
@@ -52,7 +58,7 @@
 
 							<div class="form-group">
 								<label for="name">Photo</label>
-								<input class="form-control-file <?php echo form_error('price') ? 'is-invalid':'' ?>"
+								<input class="form-control-file <?php echo form_error('image') ? 'is-invalid':'' ?>"
 								 type="file" name="image" />
 								<div class="invalid-feedback">
 									<?php echo form_error('image') ?>

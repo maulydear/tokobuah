@@ -8,7 +8,9 @@ class Products extends CI_Controller
     {
         parent::__construct();
         $this->load->model("product_model");
+        $this->load->model("login_model");
         $this->load->library('form_validation');
+        $this->load->library('upload');
     }
 
     public function index()
@@ -25,7 +27,7 @@ class Products extends CI_Controller
 
         if ($validation->run()) {
             $product->save();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
+            $this->session->set_flashdata('success', 'Berhasil di Simpan');
         }
 
         $this->load->view("admin/product/new_form");
@@ -41,7 +43,7 @@ class Products extends CI_Controller
 
         if ($validation->run()) {
             $product->update();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
+            $this->session->set_flashdata('success', 'Berhasil di Update');
         }
 
         $data["product"] = $product->getById($id);
